@@ -9,9 +9,8 @@ class NotesContainer extends Component {
     componentDidMount(){
         fetch('http://localhost:3001/notes')
         .then(resp => resp.json())
-        .then(notes => this.setState({notes: notes}))
+        .then(notes => notes.map(note => this.props.addNote(note)))
     }
-
 
     render(){
         return( 
@@ -30,4 +29,10 @@ const mapStateToProps = state =>{
     return {notes: state.notes}
   }
 
-export default connect(mapStateToProps)(NotesContainer)
+const mapDispatchToProps = dispatch => {
+    return{
+        addNote: note => dispatch({ type: 'ADD_NOTE', payload: note}),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NotesContainer)
