@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Notes from '../components/Notes'
 
 class NotesContainer extends Component {
 
@@ -16,7 +17,7 @@ class NotesContainer extends Component {
         return( 
            <Container>
             <Row>
-              <Col>NOTES</Col>
+              <Col><Notes notes={this.props.notes}/></Col>
               <Col>2 of 2</Col>
             </Row>
           </Container>
