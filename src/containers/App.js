@@ -1,17 +1,18 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import NotesContainer from './NotesContainer.js'
+import Login from '../components/Login'
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <div>
+      <div className="App">
         <NavBar />
-        <NotesContainer />
+          <Switch>
+            <Route path='/login' component={Login} />
+            <Route path='/dashboard' component={NotesContainer}/>
+          </Switch>
       </div>
     </Router>
   );
