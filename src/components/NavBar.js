@@ -9,7 +9,7 @@ const NavBar = () => {
             <Nav className="mr-auto">
             <Nav.Link href="/dashboard">Home</Nav.Link>
             <Nav.Link href="/note/new">New Note</Nav.Link>
-            <Nav.Link href="">Sign Out</Nav.Link>
+            <Nav.Link href="/login">Sign Out</Nav.Link>
             </Nav>
         </Navbar>
     );

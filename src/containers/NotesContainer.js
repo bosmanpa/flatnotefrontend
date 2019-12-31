@@ -8,7 +8,7 @@ import NewNote from '../components/NewNote'
 class NotesContainer extends Component {
 
     componentDidMount(){
-        fetch('http://localhost:3001/notes')
+        fetch(`http://localhost:3001/notes`)
         .then(resp => resp.json())
         .then(notes => notes.map(note => this.props.addNote(note)))
     }
