@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import NotesContainer from './NotesContainer.js'
 import Login from '../components/Login'
-import NewNote from '../components/NewNote'
 
 
 const App = () => {
@@ -14,7 +13,7 @@ const App = () => {
           <Switch>
             <Route path='/login' component={Login} />
             <Route path='/dashboard' component={NotesContainer}/>
-            <Route path='/note/new' component={NewNote}/>
+            <Route path='/note/new' component={NotesContainer}/>
           </Switch>
       </div>
     </Router>

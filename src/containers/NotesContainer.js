@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Notes from '../components/Notes'
+import NewNote from '../components/NewNote'
+
 
 class NotesContainer extends Component {
 
@@ -15,12 +15,14 @@ class NotesContainer extends Component {
 
     render(){
         return( 
-           <Container>
-            <Row>
-              <Col><Notes notes={this.props.notes}/></Col>
-              <Col>2 of 2</Col>
-            </Row>
-          </Container>
+            <Router>
+                <div>
+                <Switch>
+                    <Route path='/dashboard' render={(props) => <Notes {...props} notes={this.props.notes}/>}/>
+                    <Route path='/note/new' render={(props) => <NewNote {...props} addNote={this.props.addNote}/>} />
+                </Switch>
+            </div>
+            </Router>
         )
     }
 

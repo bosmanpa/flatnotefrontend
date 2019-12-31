@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { Redirect } from 'react-router-dom';
 
 class NewNote extends Component{
     state={
@@ -10,8 +11,7 @@ class NewNote extends Component{
 
     handleSubmit = event => {
         event.preventDefault()
-        console.log("SUBMIT")
-        this.setState({title:'', body:''})
+        this.props.newNote({title: this.state.title, body: this.state.body})
     }
 
     onTitleChange = event => this.setState({title: event.target.value})

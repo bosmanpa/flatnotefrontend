@@ -1,9 +1,7 @@
-import cuid  from 'cuid'
-
 export default function reducer(state = {notes: [], current_user: 0}, action) {
     switch(action.type){
         case "ADD_NOTE":
-            return{ ...state, notes: [...state.notes, {title: action.payload.title, body: action.payload.body, id: cuid()}] }
+            return{ ...state, notes: [...state.notes, {title: action.payload.title, body: action.payload.body, id: action.payload.id}] }
         default:
             return state
     }
