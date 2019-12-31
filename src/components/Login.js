@@ -18,7 +18,11 @@ class Login extends Component{
     fetchUser = () =>{
         fetch(`http://localhost:3001/users/${this.state.current_user}`)
         .then(resp => resp.json())
-        .then(user => this.props.userLogin(user))
+        .then(user => {
+            this.props.userLogin(user)
+            this.props.history.push("/dashboard")
+        })
+   
     }
 
     render(){
