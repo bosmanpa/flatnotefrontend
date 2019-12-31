@@ -11,6 +11,7 @@ class NewNote extends Component{
     handleSubmit = event => {
         event.preventDefault()
         console.log("SUBMIT")
+        this.setState({title:'', body:''})
     }
 
     onTitleChange = event => this.setState({title: event.target.value})
