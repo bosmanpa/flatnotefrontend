@@ -1,4 +1,4 @@
-export default function reducer(state = {current_user: null, showNote: null}, action) {
+export default function reducer(state = {current_user: null, noteShow: null}, action) {
     switch(action.type){
         case "USER_LOGIN":
             return{...state, current_user: action.payload}
@@ -10,10 +10,10 @@ export default function reducer(state = {current_user: null, showNote: null}, ac
                     notes: [...state.current_user.notes, action.payload]
                 }
             }
-        case "SHOW_NOTE":
+        case "NOTE_SHOW":
             return {
                 ...state,
-                showNote: action.payload
+                noteShow: action.payload
             }
         default:
             return state

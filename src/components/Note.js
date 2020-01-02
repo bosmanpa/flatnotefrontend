@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 
 class Note extends Component {
     handleClick = (noteId) => {
-        console.log(noteId)
+        this.props.noteShow(noteId)
     }
  
     render () {
