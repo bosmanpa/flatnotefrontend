@@ -1,10 +1,9 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import Notes from '../components/Notes'
-import NewNote from '../components/NewNote'
 import Login from '../components/Login'
 import history from '../history'
+import LoginCheck from '../components/LoginCheck'
 
 
 const App = () => {
@@ -14,8 +13,7 @@ const App = () => {
         <NavBar />
           <Switch>
             <Route exact path='/login' component={Login} />
-            <Route exact path='/dashboard' component={Notes} />
-            <Route exact path='/note/new' component={NewNote}/>
+            <Route path="/" component={LoginCheck} />
           </Switch>
       </div>
     </Router>
