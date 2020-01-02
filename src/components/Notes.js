@@ -6,7 +6,6 @@ import Note from './Note'
 
 class Notes extends Component {
   render() {
-    
     const notesList = this.props.notes.map(note => {
       return <Note  note={note} />
     })

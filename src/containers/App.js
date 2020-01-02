@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import NotesContainer from './NotesContainer.js'
+import NewNote from '../components/NewNote'
 import Login from '../components/Login'
 import history from '../history'
 
@@ -13,8 +14,8 @@ const App = () => {
         <NavBar />
           <Switch>
             <Route path='/login' component={Login} />
-            <Route path='/dashboard' render={(props) => <NotesContainer {...props}/>} />
-            <Route path='/note/new' component={NotesContainer}/>
+            <Route path='/dashboard' component={NotesContainer} />
+            <Route path='/note/new' component={NewNote}/>
           </Switch>
       </div>
     </Router>
