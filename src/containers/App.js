@@ -13,9 +13,9 @@ const App = () => {
       <div className="App">
         <NavBar />
           <Switch>
-            <Route path='/login' component={Login} />
-            <Route path='/dashboard' component={Notes} />
-            <Route path='/note/new' component={NewNote}/>
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/dashboard' component={Notes} />
+            <Route exact path='/note/new' component={NewNote}/>
           </Switch>
       </div>
     </Router>
