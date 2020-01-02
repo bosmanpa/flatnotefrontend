@@ -4,6 +4,7 @@ import NewNote from './NewNote'
 import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import history from '../history'
 import { connect } from 'react-redux'
+import Update from './Update'
 
 
 class LoginCheck extends Component{
@@ -18,6 +19,7 @@ class LoginCheck extends Component{
             <Switch>
                 <Route exact path='/dashboard' component={Notes} />
                 <Route exact path='/note/new' component={NewNote} />
+                <Route exact path='/update' component={Update}/>
             </Switch>
         </div>
     </Router>

@@ -12,7 +12,7 @@ class Notes extends Component {
 
   showSwitch = () =>{
     if (this.props.ifNoteShow !== null) {
-       return <NoteShow />
+       return <NoteShow history={this.props.history}/>
     } else {
       return null
     }

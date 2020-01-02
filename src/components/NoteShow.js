@@ -12,6 +12,9 @@ class NoteShow extends Component {
         this.props.deleteNoteFromStore(note)})
     .catch(error => console.log(error))
     }
+    editNote = () => {
+        this.props.history.push('/update')
+    }
 
     render(){
 
@@ -20,6 +23,7 @@ class NoteShow extends Component {
             <div>
                 <h1>{noteToShow[0].title}</h1>
                 <p>{noteToShow[0].body}</p>
+                <button onClick={this.editNote}>Edit this note</button>
                 <button onClick={this.deleteNote}>Delete this note</button>
             </div>
         )
