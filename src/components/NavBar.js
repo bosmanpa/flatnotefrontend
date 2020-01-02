@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class NavBar extends Component{
     
     homeClick = () =>{
+        this.props.noteShow(null)
         this.props.history.push("/dashboard")
     }
 
     newNoteClick = () => {
+        this.props.noteShow(null)
         this.props.history.push("/note/new")
     }
     
@@ -26,5 +29,11 @@ class NavBar extends Component{
     )}
   };
   
-  export default withRouter(NavBar);
+  const mapDispatchToProps = dispatch => {
+    return{
+        noteShow: noteId => dispatch({type: "NOTE_SHOW", payload: noteId})
+    }
+  }
+
+  export default withRouter(connect(null, mapDispatchToProps)(NavBar));
   

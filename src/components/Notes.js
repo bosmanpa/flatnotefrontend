@@ -9,6 +9,7 @@ import NoteShow from './NoteShow'
 
 class Notes extends Component {
   
+
   showSwitch = () =>{
     if (this.props.ifNoteShow !== null) {
        return <NoteShow />

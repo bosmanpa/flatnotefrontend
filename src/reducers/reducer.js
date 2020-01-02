@@ -15,6 +15,15 @@ export default function reducer(state = {current_user: null, noteShow: null}, ac
                 ...state,
                 noteShow: action.payload
             }
+        case "DELETE_NOTE":
+            const notes = state.current_user.notes.filter(note => note.id !== action.payload.id)
+            return {
+                ...state, 
+                current_user: { 
+                    ...state.current_user,
+                    notes: notes
+                }
+            }
         default:
             return state
     }

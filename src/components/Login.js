@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 
 class Login extends Component{
     state={
-        current_user: ''
+        current_user: 'user1'
     }
 
     handleChange = event => this.setState({current_user: event.target.value})
