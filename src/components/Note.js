@@ -3,9 +3,13 @@ import Card from 'react-bootstrap/Card'
 
 
 class Note extends Component {
- render () {
+    handleClick = (noteId) => {
+        console.log(noteId)
+    }
+ 
+    render () {
     return(
-        <Card style={{ width: '18rem'}}>
+        <Card onClick={() => this.handleClick(this.props.note.id)} style={{ width: '18rem'}}>
         <Card.Body>
             <Card.Title>{this.props.note.title}</Card.Title>
             <Card.Text>{this.props.note.body}</Card.Text>
