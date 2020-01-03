@@ -44,7 +44,7 @@ class Update extends Component{
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" name="title" value={this.state.title} onChange={this.handleChange}></input>
-                    <input type="text" name="body" value={this.state.body} onChange={this.handleChange}></input>
+                    <input type="textarea" name="body" value={this.state.body} onChange={this.handleChange}></input>
                     <input type="submit"/>
                 </form>
             </div>

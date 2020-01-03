@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class NewNote extends Component{
     state={
@@ -47,20 +50,28 @@ class NewNote extends Component{
 
     render(){
     return(
-            <Form onSubmit={this.handleSubmit}>
-                <Form.Group controlId="formTitle" value={this.state.title} onChange={this.onTitleChange}>
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control placeholder="Note Title" />
-                </Form.Group>
+        <Container>
+            <Row>
+                <Col></Col>
+                <Col xs={6}>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Group controlId="formTitle" value={this.state.title} onChange={this.onTitleChange}>
+                            <Form.Label>Title</Form.Label>
+                            <Form.Control placeholder="Note Title" />
+                        </Form.Group>
 
-                <Form.Group controlId="formBody" value={this.state.body} onChange={this.onBodyChange}>
-                    <Form.Label>Note</Form.Label>
-                    <Form.Control as="textarea" rows="3" placeholder="Note Body"/>
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
+                        <Form.Group controlId="formBody" value={this.state.body} onChange={this.onBodyChange}>
+                            <Form.Label>Note</Form.Label>
+                            <Form.Control as="textarea" rows="3" placeholder="Note Body"/>
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                    </Form>
+                </Col>
+                <Col></Col>
+            </Row>
+        </Container>
     )
 }
 
