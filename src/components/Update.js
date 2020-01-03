@@ -18,6 +18,17 @@ class Update extends Component{
 
     handleSubmit = (event) =>{
         event.preventDefault()
+        const reqObj = {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state)
+          }
+      
+          fetch(`http://localhost:3001/notes/${this.props.noteIdToShow}`, reqObj)
+          .then(resp => resp.json())
+          .then(data => console.log(data))
 
     }
 
