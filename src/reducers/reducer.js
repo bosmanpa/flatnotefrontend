@@ -24,6 +24,19 @@ export default function reducer(state = {current_user: null, noteShow: null}, ac
                     notes: notes
                 }
             }
+        case "NOTE_UPDATE":
+            const notesArray = state.current_user.notes
+            const updateIndex = notesArray.findIndex(note => note.id === action.payload.id)           
+            return {
+                ...state,
+                current_user: {
+                    ...state.current_user,
+                    notes: [
+                        ...notesArray.slice( 0, updateIndex), 
+                        action.payload, 
+                        ...notesArray.slice( updateIndex+1, notesArray.length)]
+                }
+            }
         default:
             return state
     }

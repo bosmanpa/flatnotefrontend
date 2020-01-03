@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 class Update extends Component{
     state={
@@ -18,6 +19,10 @@ class Update extends Component{
 
     handleSubmit = (event) =>{
         event.preventDefault()
+        this.updateFetch()    
+    }
+
+    updateFetch = () => {
         const reqObj = {
             method: 'PATCH',
             headers: {
@@ -28,8 +33,10 @@ class Update extends Component{
       
           fetch(`http://localhost:3001/notes/${this.props.noteIdToShow}`, reqObj)
           .then(resp => resp.json())
-          .then(data => console.log(data))
-
+          .then(note => {
+              this.props.noteUpdate(note)
+              this.props.history.push('/dashboard')
+            })
     }
 
     render(){
@@ -50,4 +57,8 @@ const mapStateToProps = (state) => {
     return {current_user: state.current_user, noteIdToShow: state.noteShow}
   }
 
-export default connect(mapStateToProps)(Update)
+  const mapDispatchToProps = dispatch => {
+    return {noteUpdate: note => dispatch({type: "NOTE_UPDATE", payload: note})}
+  }
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Update))
