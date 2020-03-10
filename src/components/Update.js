@@ -43,8 +43,9 @@ class Update extends Component{
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="title" value={this.state.title} onChange={this.handleChange}></input>
-                    <input type="textarea" name="body" value={this.state.body} onChange={this.handleChange}></input>
+                    <label>Title</label><br />
+                    <input type="text" name="title" value={this.state.title} onChange={this.handleChange}></input><br />
+                    <label>Body</label><textarea name="body" rows="4" cols="50" value={this.state.body} onChange={this.handleChange}></textarea><br />
                     <input type="submit"/>
                 </form>
             </div>
